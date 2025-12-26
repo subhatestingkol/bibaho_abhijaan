@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Swarnali Weds Subhajyoti</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        overflow: hidden;
+        background: linear-gradient(135deg, #ff758c, #ff7eb3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Segoe UI', sans-serif;
+        animation: fadeIn 2s ease-in;
+    }
+
+    /* Floating Hearts */
+    .heart {
+        position: absolute;
+        bottom: -20px;
+        font-size: 20px;
+        color: rgba(255, 255, 255, 0.7);
+        animation: floatUp 8s linear infinite;
+    }
+
+    @keyframes floatUp {
+        0% {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(-120vh) scale(1.5);
+            opacity: 0;
+        }
+    }
+
+    .card {
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        text-align: center;
+        width: 90%;
+        max-width: 650px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+        animation: slideUp 1.2s ease-out;
+        position: relative;
+        z-index: 2;
+    }
+
+    h1 {
+        font-size: 40px;
+        color: #e91e63;
+        margin-bottom: 10px;
+        animation: pulse 2s infinite;
+    }
+
+    h2 {
+        font-size: 22px;
+        color: #555;
+        margin-bottom: 25px;
+        letter-spacing: 2px;
+    }
+
+    .countdown {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 25px;
+        flex-wrap: wrap;
+    }
+
+    .box {
+        background: #e91e63;
+        color: white;
+        padding: 20px;
+        border-radius: 15px;
+        width: 110px;
+        margin: 10px;
+        animation: bounce 2s infinite alternate;
+    }
+
+    .box span {
+        display: block;
+        font-size: 36px;
+        font-weight: bold;
+    }
+
+    .label {
+        font-size: 14px;
+        margin-top: 5px;
+        letter-spacing: 1px;
+    }
+
+    .wish {
+        font-size: 20px;
+        color: #444;
+        font-style: italic;
+        margin-top: 10px;
+        animation: fadeIn 3s ease-in;
+    }
+
+    .life-wishes {
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px dashed #e91e63;
+        font-size: 18px;
+        color: #666;
+        line-height: 1.6;
+        animation: fadeIn 4s ease-in;
+    }
+
+    .life-wishes span {
+        color: #e91e63;
+        font-weight: bold;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+        from { transform: translateY(60px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes bounce {
+        from { transform: translateY(0); }
+        to { transform: translateY(-10px); }
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+</style>
+</head>
+
+<body>
+
+<!-- Floating Hearts -->
+<div id="hearts"></div>
+
+<div class="card">
+    <h1>Swarnali Weds Subhajyoti</h1>
+    <h2>Counting Down to Forever 💍</h2>
+
+    <div class="countdown">
+        <div class="box">
+            <span id="days">0</span>
+            <div class="label">DAYS</div>
+        </div>
+        <div class="box">
+            <span id="hours">0</span>
+            <div class="label">HOURS</div>
+        </div>
+        <div class="box">
+            <span id="minutes">0</span>
+            <div class="label">MINUTES</div>
+        </div>
+        <div class="box">
+            <span id="seconds">0</span>
+            <div class="label">SECONDS</div>
+        </div>
+    </div>
+
+    <div class="wish">
+        Wishing you both a lifetime filled with love, laughter,  
+        togetherness, and beautiful memories ❤️
+    </div>
+
+    <div class="life-wishes">
+        🌸 <span>Happy Wishes for Life</span> 🌸 <br>
+        May your journey together be filled with endless smiles,  
+        mutual respect, deep understanding, and unconditional love.  
+        May every sunrise bring hope and every sunset bring peace.  
+        Stay blessed, stay in love, forever and always 💕
+        <br><br>
+        <strong>From:</strong> Wordpress and HTML Team
+    </div>
+</div>
+
+<script>
+/* Countdown Timer */
+function updateCountdown() {
+    const weddingDate = new Date("Feb 6, 2026 00:00:00").getTime();
+    const now = new Date().getTime();
+    const diff = weddingDate - now;
+
+    if (diff <= 0) {
+        document.querySelector(".countdown").innerHTML =
+            "<h2>🎉 It's the Wedding Day! 🎉</h2>";
+        return;
+    }
+
+    document.getElementById("days").innerText =
+        Math.floor(diff / (1000 * 60 * 60 * 24));
+    document.getElementById("hours").innerText =
+        Math.floor((diff / (1000 * 60 * 60)) % 24);
+    document.getElementById("minutes").innerText =
+        Math.floor((diff / (1000 * 60)) % 60);
+    document.getElementById("seconds").innerText =
+        Math.floor((diff / 1000) % 60);
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+/* Floating Hearts Generator */
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 15 + "px";
+    heart.style.animationDuration = Math.random() * 3 + 5 + "s";
+
+    document.getElementById("hearts").appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 8000);
+}
+
+setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
