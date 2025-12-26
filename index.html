@@ -194,7 +194,9 @@
 .close:hover {
     color: #ff5a5f;
 }
-
+.weddingDate{
+    margin-left: -30px;
+}
 @keyframes zoomIn {
     from {transform: scale(0.5); opacity: 0;}
     to {transform: scale(1); opacity: 1;}
@@ -210,6 +212,7 @@
 <div class="card">
     <h1>Swarnali Weds Subhajyoti</h1>
     <h2>Counting Down 💍</h2>
+    <h2 class="weddingDate">Date: 06/02/2026</h2>
 
     <div class="countdown">
         <div class="box">
@@ -247,7 +250,7 @@
         May every sunrise bring hope and every sunset bring peace.  
         Stay blessed, stay in love, forever and always 💕
         <br><br>
-        <strong>From:</strong> Wordpress and HTML Team
+        <strong>With best wishes from the Office Team</strong> 
     </div>
 </div>
 
@@ -258,51 +261,6 @@
 </div>
 <audio id="weddingMusic" src="./sehnai_marriage.mp3"></audio>
 
-<!-- 
-<script>
-/* Countdown Timer */
-function updateCountdown() {
-    const weddingDate = new Date("Feb 6, 2026 00:00:00").getTime();
-    const now = new Date().getTime();
-    const diff = weddingDate - now;
-
-    if (diff <= 0) {
-        document.querySelector(".countdown").innerHTML =
-            "<h2>🎉 It's the Wedding Day! 🎉</h2>";
-        return;
-    }
-
-    document.getElementById("days").innerText =
-        Math.floor(diff / (1000 * 60 * 60 * 24));
-    document.getElementById("hours").innerText =
-        Math.floor((diff / (1000 * 60 * 60)) % 24);
-    document.getElementById("minutes").innerText =
-        Math.floor((diff / (1000 * 60)) % 60);
-    document.getElementById("seconds").innerText =
-        Math.floor((diff / 1000) % 60);
-}
-
-updateCountdown();
-setInterval(updateCountdown, 1000);
-
-/* Floating Hearts Generator */
-function createHeart() {
-    const heart = document.createElement("div");
-    heart.classList.add("heart");
-    heart.innerHTML = "💖";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.fontSize = Math.random() * 20 + 15 + "px";
-    heart.style.animationDuration = Math.random() * 3 + 5 + "s";
-
-    document.getElementById("hearts").appendChild(heart);
-
-    setTimeout(() => {
-        heart.remove();
-    }, 8000);
-}
-
-setInterval(createHeart, 300);
-</script> -->
 <script>
 /* Countdown Timer */
 function updateCountdown() {
